@@ -9,8 +9,12 @@ void bestFit(vector<int> &processSize, vector<int> &blockSize){
         int best=-1;  //initially none of the block will be best;
         for(int j =0;j<blockSize.size();j++){
             int difference = -1;
-            if(blockSize[j]-processSize[i]>difference){
-                best = j;
+            if (blockSize[j] >= processSize[i])  
+            {  
+                if (best == -1)  
+                    best = j;  
+                else if (blockSize[best] > blockSize[j])  
+                    best = j;
             }
         } 
         if(best ==-1) break;  //if best is not found skip this process
